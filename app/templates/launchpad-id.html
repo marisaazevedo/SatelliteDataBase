@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} LaunchPad Info {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ launchpad.Name }}</h2>
+    <p>
+        <b>Launchpad Id: </b>{{ launchpad.LaunchpadId}}
+    </p>
+    <p>
+        <b>Location: </b>{{ launchpad.Location}}
+    </p>
+    <p>
+        <b>Country: </b>{{ launchpad.Country }}
+    </p>
+    <p>
+        <b>Construction Year: </b>{{ launchpad.ConstructionYear }}
+    </p>
+
+    <h2>Satellites launched in {{launchpad.Name}}</h2>
+    <p>
+        {% for s in satellites %}
+        <li><a href="/satellites/{{ s.SatelliteId }}">{{s.Model }}</a></li>
+        {% endfor %}
+        </ul>
+    </p>
+{% endblock %}

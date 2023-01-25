@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ search.expr }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>Model</b></th>
+    <th><b>RoleId</b></th>
+    <th><b>User</b></th>
+    <th><b>Purpose</b></th>
+  </tr>
+
+  {% for r1 in roles %}
+    <tr>
+      <td><a href="/satellites/{{r1.SatelliteId}}">{{r1.Model}}</a></td>
+      <td>{{ r1.RoleId }}</td>
+      <td>{{ r1.User}}</td>
+      <td>{{ r1.Purpose}}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

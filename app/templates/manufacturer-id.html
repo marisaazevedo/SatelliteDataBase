@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Manufacturer Info {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ manufacturer.Name }}</h2>
+    <p>
+        <b>ManufacturerId: </b>{{ manufacturer.ManufacturerId }}
+    </p>
+    <p>
+        <b>Country: </b>{{ manufacturer.Country }}
+    </p>
+    <p>
+        <b>Adress: </b>{{ manufacturer.Adress }}
+    </p>
+    <p>
+        <b>Contacts: </b>{{ manufacturer.Number }}
+    </p>
+
+    <h2>Satellites manufactured by {{manufacturer.Name}}</h2>
+    <p>
+        {% for s in satellites %}
+        <li><a href="/satellites/{{ s.SatelliteId }}">{{s.Model}}</a></li>
+        {% endfor %}
+        </ul>
+    </p>
+{% endblock %}

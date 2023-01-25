@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Total number of satellites per manufacturer{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>Manufacturer</b></th>
+    <th><b>Number of satellites</b></th>
+   </tr>
+
+  {% for manufacturer in manufacturers %}
+    <tr>
+      <td>{{manufacturer.Name}}</td>
+      <td>{{manufacturer.Satellites }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

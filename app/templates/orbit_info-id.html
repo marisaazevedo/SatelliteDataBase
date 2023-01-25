@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Orbit Info {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <p>
+        <b>Model: </b>
+        <a href="/satellites/{{orbit_info.SatelliteId}}">{{orbit_info.Model}}</a>
+    </p>
+    <p>
+        <b>LaunchId: </b>{{ orbit_info.LaunchId }}
+    </p>
+    <p>
+        <b>State: </b>{{ orbit_info.State }}
+    </p>
+    <p>
+        <b>Orbit: </b>{{ orbit_info.Orbit }}
+    </p>
+    <p>
+        <b>Period: </b>{{ orbit_info.Period }} minutes
+    </p>
+    <p>
+        <b>Apogee: </b>{{ orbit_info.Apogee }} km
+    </p>
+    <p>
+        <b>Perigee: </b>{{ orbit_info.Perigee }} km
+    </p>
+    <p>
+        <b>Inclination: </b>{{ orbit_info.Inclination }}°
+    </p>
+
+{% endblock %}

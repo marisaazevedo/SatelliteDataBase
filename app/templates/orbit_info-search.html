@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ search.expr }} {% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+    <table>
+    <tr>
+        <th><b>Model</b></th>
+        <th><b>LaunchId</b></th>
+        <th><b>State</b></th>
+        <th><b>Orbit</b></th>
+        <th><b>Period (minutes)</b></th>
+        <th><b>Apogee (km)</b></th>
+        <th><b>Perigee (km)</b></th>
+        <th><b>Inclination (°)</b></th>
+    </tr>
+
+    {% for o in orbit_info %}
+        <tr>
+        <td><a href="/satellites/{{o.SatelliteId}}">{{o.Model}}</a></td>
+        <td>{{ o.LaunchId }}</td>
+        <td>{{ o.State}}</td>
+        <td>{{ o.Orbit}}</td>
+        <td>{{ o.Period}}</td>
+        <td>{{ o.Apogee}}</td>
+        <td>{{ o.Perigee}}</td>
+        <td>{{ o.Inclination}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

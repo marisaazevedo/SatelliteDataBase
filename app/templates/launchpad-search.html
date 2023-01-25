@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ search.expr }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Search results</h2>
+  <p><ul>
+    {% for l in launchpads %}
+      <li><a href="/launchpads/{{ l.LaunchpadId }}">{{ l.Name }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+
+{% endblock %}

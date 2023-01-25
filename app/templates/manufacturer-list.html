@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Manufacturers{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>ManufacturerId</b></th>
+    <th><b>Name</b></th>
+    <th><b>Country</b></th>
+    <th><b>Adress</b></th>
+    <th><b>Contacts</b></th>
+   </tr>
+
+  {% for manufacturer in manufacturers %}
+    <tr>
+      <td>{{ manufacturer.ManufacturerId }}</td>
+      <td>{{ manufacturer.Name}}</td>
+      <td>{{ manufacturer.Country}}</td>
+      <td>{{ manufacturer.Adress}}</td>
+      <td>{{ manufacturer.Number}}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

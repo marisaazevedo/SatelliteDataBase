@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ search.expr }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Search results</h2>
+  <p><ul>
+    {% for s in satellites %}
+      <li><a href="/satellites/{{ s.SatelliteId }}">{{ s.Model }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+{% endblock %}

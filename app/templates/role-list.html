@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Role{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>RoleId</b></th>
+    <th><b>User</b></th>
+    <th><b>Purpose</b></th>
+   </tr>
+
+  {% for r in roles %}
+    <tr>
+      <td>{{ r.RoleId }}</td>
+      <td>{{ r.User}}</td>
+      <td>{{ r.Purpose}}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

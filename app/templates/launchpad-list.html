@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Launchpads{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>LaunchpadId</b></th>
+    <th><b>Name</b></th>
+    <th><b>Location</b></th>
+    <th><b>Country</b></th>
+    <th><b>Construction Year</b></th>
+   </tr>
+
+  {% for launchpad in launchpads %}
+    <tr>
+      <td>{{ launchpad.LaunchpadId }}</td>
+      <td>{{ launchpad.Name}}</td>
+      <td>{{ launchpad.Location}}</td>
+      <td>{{ launchpad.Country}}</td>
+      <td>{{ launchpad.ConstructionYear}}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

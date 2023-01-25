@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Satellite database {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>by Beatriz Sá, Marisa Azevedo and Rita Ferreira.</p>
+<h2>Some database statistics</h2>
+<table>
+<tr>
+  <th>Items</th>
+  <th>Count</th>
+</tr>
+<tr>
+  <td>Satellites</td>
+  <td>{{ stats.satellites }}</td>
+</tr>
+<tr>
+  <td>Launchpads</td>
+  <td>{{ stats.launchpads }}</td>
+</tr>
+<tr>
+  <td>Manufacturers</td>
+  <td>{{ stats.manufacturer }}</td>
+</tr>
+</table>
+
+
+<h2>Sample functionality</h2>
+
+<h3>Satellites</h3>
+<p>
+   <a href="/satellites">List all</a>
+</p>
+<p>Get satellite info:
+<form name="sid" action="javascript:window.open('/satellites/'+document.forms['sid'].elements['id'].value,'_self')">
+  <p>Satellite Id:<input value="39508" name="id" type="number" min="1"/><input type="submit" value="get"/></p>
+</form>
+</p>
+
+<p>Search by Model:
+<form name="ssearch" action="javascript:window.open('/satellites/search/'+document.forms['ssearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" value="Starlink" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+
+<h3>Manufacturers</h3>
+<p>
+  <a href="/manufacturers">List all</a>
+</p>
+<p>
+  <a href="/manufacturers/list_satellites">Total number of satellites per manufacturer</a>
+</p>
+</p>
+<p>Get manufacturer info:
+<form name="mid" action="javascript:window.open('/manufacturers/'+document.forms['mid'].elements['id'].value,'_self')">
+    <p>Manufacturer Id: <input value="2" name="id" type="number" min="1"/><input type="submit" value="get"/></p>
+</form>
+</p>
+
+<p>Search by Name:
+<form name="msearch" action="javascript:window.open('/manufacturers/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" value="Air force" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+
+<h3>Launchpads</h3>
+<p>
+  <a href="/launchpads">List all</a>
+</p>
+<p>
+  <a href="/launchpads/list_satellites">Total number of satellites per launchpad</a>
+</p>
+</p>
+<p>Get launchpad info:
+<form name="lid" action="javascript:window.open('/launchpads/'+document.forms['lid'].elements['id'].value,'_self')">
+    <p>Launchpad Id: <input value="15" name="id" type="number" min="1"/><input type="submit" value="get"/></p>
+</form>
+</p>
+
+<p>Search by Name:
+<form name="lsearch" action="javascript:window.open('/launchpads/search/'+document.forms['lsearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" value="Space" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+
+<h3>Orbit</h3>
+<p>
+  <a href="/orbit_infos">List all</a>
+</p>
+</p>
+<p>Get orbit info:
+<form name="oid" action="javascript:window.open('/orbit_infos/'+document.forms['oid'].elements['id'].value,'_self')">
+   <p>Satellite Id: <input value="38254" name="id" type="number" min="1"/><input type="submit" value="get"/></p>
+</form>
+</p>
+<p>Search by orbit state:
+  <form name="osearch" action="javascript:window.open('/orbit_infos/search/'+document.forms['osearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="In Orbit" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Roles</h3>
+<p>
+  <a href="/roles">List all</a>
+</p>
+</p>
+<p>Get role info:
+<form name="rid" action="javascript:window.open('/roles/'+document.forms['rid'].elements['id'].value,'_self')">
+   <p>Role Id: <input value="23" name="id" type="number" min="1"/><input type="submit" value="get"/></p>
+</form>
+</p>
+<p>Search by user:
+  <form name="rsearch" action="javascript:window.open('/roles/search/user/'+document.forms['rsearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="Civil" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+<p>Search by purpose:
+  <form name="r1search" action="javascript:window.open('/roles/search/purpose/'+document.forms['r1search'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" value="Communications" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h2>About</h2>
+<p>This web application illustrates the use of the Satellite
+database. The application is built using
+<a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, and
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+{% endblock %}

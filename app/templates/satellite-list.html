@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Satellites{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>SatelliteId</b></th>
+    <th><b>LaunchId</b></th>
+    <th><b>Model</b></th>
+    <th><b>ManufacturerId</b></th>
+    <th><b>LaunchpadId</b></th>
+  </tr>
+
+  {% for satellite in satellites %}
+    <tr>
+      <td>{{ satellite.SatelliteId }}</td>
+      <td>{{ satellite.LaunchId }}</td>
+      <td>{{ satellite.Model }}</td>
+      <td><a href="/manufacturers/{{satellite.ManufacturerId}}">{{ satellite.ManufacturerId }}</a></td>
+      <td><a href="/launchpads/{{satellite.LaunchpadId}}">{{ satellite.LaunchpadId }} </a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

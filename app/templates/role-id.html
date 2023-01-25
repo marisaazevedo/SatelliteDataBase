@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Role {{roles.RoleId}} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Satellites for {{roles.User}} and {{roles.Purpose}}</h2>
+    <p>
+        {% for r in satellites %}
+        <li><a href="/satellites/{{ r.SatelliteId }}">{{r.Model }}</a></li>
+        {% endfor %}
+        </ul>
+    </p>
+{% endblock %}

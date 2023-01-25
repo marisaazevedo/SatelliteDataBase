@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Total number of satellites per launchpad{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table>
+  <tr>
+    <th><b>Launchpad</b></th>
+    <th><b>Number of satellites</b></th>
+   </tr>
+
+  {% for launchpad in launchpads %}
+    <tr>
+      <td>{{launchpad.Name}}</td>
+      <td>{{launchpad.Satellites }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ satellite.Model }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Satellite info</h2>
+  <p>
+    <b>SatelliteId: </b>{{ satellite.SatelliteId }}
+  </p>
+  <p>
+    <b>LaunchId: </b>{{ satellite.LaunchId }}
+  </p>
+  <p>
+    <b>Model: </b>{{ satellite.Model }}
+  </p>
+  <p>
+    <b>Manufacturer: <a href="/manufacturers/{{satellite.ManufacturerId}}">{{manufacturer.Name}} </a> </b>
+  </p>
+  <p>
+    <b>Launchpad: <a href="/launchpads/{{satellite.LaunchpadId}}">{{launchpad.Name}} </a> </b>
+  </p>
+
+{% endblock %}
